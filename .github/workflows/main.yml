@@ -32,7 +32,7 @@ jobs:
         run: |
           yarn run prettier --write '**/*.{css,js,vue}'
           echo ${{ github.head_ref }}
-          echo FETCH_HEAD
+          echo $FETCH_HEAD
       - uses: stefanzweifel/git-auto-commit-action@v2.1.0
 
         with:
