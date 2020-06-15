@@ -30,9 +30,7 @@ jobs:
           git checkout FETCH_HEAD
       - name: Run prettier
         run: yarn run prettier --write '**/*.{css,js,vue}'
-      - uses: stefanzweifel/git-auto-commit-action@v2.1.0
-
-        with:
-          commit_message: Apply prettier changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit
+        run: |
+          git add .
+          if [[ $(git diff --name-only --cached) != "" ]]; then  git commit -m 'automated syle update' ; fi
