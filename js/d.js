@@ -1,6 +1,6 @@
 /*!
  * Validator v0.8.1 for Bootstrap 3, by @1000hz
- * Copyright 2015 Cina Saffarysfdsf
+ * Copyright 2015 Cina Saffarysfdsfdas
  * Licensed under http://opensource.org/licenses/MIT
  *
  * https://github.com/1000hz/bootstrap-validator
