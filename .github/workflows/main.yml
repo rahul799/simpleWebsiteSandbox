@@ -29,14 +29,10 @@ jobs:
           git fetch origin +refs/pull/${{ github.event.issue.number }}/merge
           git checkout FETCH_HEAD
       - name: Run prettier
-        run: |
-          yarn run prettier --write '**/*.{css,js,vue}'
-          echo ${{ github.head_ref }}
-          echo $FETCH_HEAD
+        run: yarn run prettier --write '**/*.{css,js,vue}'
       - uses: stefanzweifel/git-auto-commit-action@v2.1.0
 
         with:
           commit_message: Apply prettier changes
-          branch: ${{ github.head_ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
