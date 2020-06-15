@@ -29,4 +29,3 @@ jobs:
                   branch: ${{ github.head_ref }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-© 2020 GitHub, Inc.
