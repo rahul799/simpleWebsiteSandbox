@@ -1,35 +1,30 @@
 name: Format (prettier)
 
 on:
-  issue_comment:
-    
+    pull_request:
+        paths:
+            - '**.css'
+            - '**.js'
+            - '**.vue'
+            - '**.jsx'
+
 jobs:
-  check_comments:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check for Command
-        id: command
-        uses: xt0rted/slash-command-action@v1
-        with:
-          command: test
-          reaction: "true"
-          reaction-type: "eyes"
-          allow-edits: "false"
-          permission-level: admin
+    prettier:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v1
 
-      - uses: actions/checkout@v1
+            - name: Install
+              run: yarn install
+              env:
+                  CI: true
 
-      - name: Install
-        run: yarn install
-        env:
-          CI: true
+            - name: Run prettier
+              run: yarn run prettier --write '**/*.{css,js,vue,jsx}'
 
-      - name: Run prettier
-        run: yarn run prettier --write '**/*.{css,js,vue,jsx}'
-
-      - uses: stefanzweifel/git-auto-commit-action@v2.1.0
-        with:
-          commit_message: Apply prettier changes
-          branch: ${{ github.head_ref }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+              with:
+                  commit_message: Apply prettier changes
+                  branch: ${{ github.head_ref }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
