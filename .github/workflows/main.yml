@@ -25,6 +25,9 @@ jobs:
         run: yarn install
         env:
           CI: true
+      - run: |
+          git fetch origin +refs/pull/${{ github.event.issue.number }}/merge
+          git checkout FETCH_HEAD
 
       - name: Run prettier
         run: yarn run prettier --write '**/*.{css,js,vue}'
