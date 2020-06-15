@@ -3,9 +3,10 @@ name: Issue Comments
 on:
   issue_comment:
     paths:
-      - "**.css"
-      - "**.js"
-      - "**.vue"
+      - '**.css'
+      - '**.js'
+      - '**.vue'
+      - '**.jsx'
 
 jobs:
   prettier:
@@ -34,7 +35,7 @@ jobs:
           CI: true
 
       - name: Run prettier
-        run: yarn run prettier --write '**/*.{css,js,vue}'
+        run: yarn run prettier --write '**/*.{css,js,vue,jsx}'
 
       - uses: stefanzweifel/git-auto-commit-action@v2.1.0
         with:
