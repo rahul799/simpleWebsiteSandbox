@@ -36,4 +36,4 @@ jobs:
           git config --global user.name "PEcAn stylebot"
           git add .
           if [[ $(git diff --name-only --cached) != "" ]]; then  git commit -m 'automated syle update' ; fi
-          git push
+          git push origin FETCH_HEAD
