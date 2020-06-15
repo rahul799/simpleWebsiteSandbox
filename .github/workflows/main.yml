@@ -34,6 +34,6 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v2.1.0
         with:
           commit_message: Apply prettier changes
-          branch: ${{ github.head_ref }}
+          branch: ${{ FETCH_HEAD }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
