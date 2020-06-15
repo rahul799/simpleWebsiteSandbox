@@ -3,10 +3,10 @@ name: Issue Comments
 on:
   issue_comment:
     paths:
-      - "**.css"
-      - "**.js"
-      - "**.vue"
-      - "**.jsx"
+      - '**.css'
+      - '**.js'
+      - '**.vue'
+      - '**.jsx'
 
 jobs:
   prettier:
