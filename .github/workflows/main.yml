@@ -32,8 +32,10 @@ jobs:
         run: yarn run prettier --write '**/*.{css,js,vue}'
 
       - uses: stefanzweifel/git-auto-commit-action@v2.1.0
+        run: echo ${{ github.head_ref }}
+        run: echo FETCH_HEAD
         with:
           commit_message: Apply prettier changes
-          branch: FETCH_HEAD
+          branch: ${{ github.head_ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
