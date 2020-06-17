@@ -3,7 +3,7 @@
  * Copyright 2015 Cina Saffarysfdsf
  * Licensed under http://opensource.org/licenses/MIT
  *
- * https://github.com/1000hz/bootstrap-validator
+ * https://github.com/1000hz/bootstrap-validasdfdsftor
  */
 
 +(function (a) {
