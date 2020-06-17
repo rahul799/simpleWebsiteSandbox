@@ -25,11 +25,11 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run yarn 
-        run: yarn run prettier --write '**/*.{css,js,html}'
+        run: yarn run prettier --write '**/*.{css,js}'
 
       - name: commit
         run: |
-          git add \*.css \*.html \*.js
+          git add \*.css \*.js
           git config --global user.email "bot@example.com"
           git config --global user.name "Bot"
           if [[ $(git diff --name-only --cached) != "" ]]; then  git commit -m 'automated syle update' ; fi
