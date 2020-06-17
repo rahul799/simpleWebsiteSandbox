@@ -14,10 +14,12 @@ jobs:
           echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
           sudo apt update
           sudo apt install yarn
-          yarn init -y
-          yarn add -E prettier
 
       - uses: actions/checkout@v2
+      - name: Install yarn
+        run: |
+          yarn init -y
+          yarn add -E prettier
       - uses: r-lib/actions/pr-fetch@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
